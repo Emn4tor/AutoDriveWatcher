@@ -1,0 +1,42 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Virtual environment
+venv/
+.env/
+*.venv
+Lib/
+Scripts/
+
+# PyCharm files
+.idea/
+*.iml
+
+# Log and debug files
+logs/
+*.log
+
+# OS-specific files
+.DS_Store
+Thumbs.db
+
+# Dependency files
+pip-log.txt
+pip-delete-this-directory.txt
+
+# Compiled Cython files
+*.c
+*.so
+
+# Ignore test results
+htmlcov/
+.coverage
+*.cover
+*.py,cover
+
+# Ignore local config files
+*.ini
+*.toml
+*.cfg
