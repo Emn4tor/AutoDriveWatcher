@@ -40,3 +40,8 @@ htmlcov/
 *.ini
 *.toml
 *.cfg
+
+#ignore Test files/folders
+Videos/
+Destination/
+GOPRO100/

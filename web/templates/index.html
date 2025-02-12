@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="AutoDriveWatch Dev Team">
+    <meta name="description" content="AutoDriveWatch - WebPanel for monitoring and managing automated driving systems.">
+    <meta name="keywords" content="AutoDriveWatch, WebPanel, Autonomous Driving, Fleet Management, Monitoring">
+    <meta name="robots" content="noindex, nofollow">
+
+    <link rel="icon" type="image/png" href="/favicon.png">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+    <link rel="stylesheet" href="/web/static/css/styles.css">
+
+
+
+    <title>AutoDriveWatch - WebPanel</title>
+</head>
+<header>
+    <div class="header">
+        <h1>AutoDriveWatch</h1>
+        <h2>WebPanel</h2>
+    </div>
+</header>
+
+
+<body>
+    <div class="container">
+        <div class="content">
+            <h1>Welcome to AutoDriveWatch</h1>
+            <p>AutoDriveWatch is a small software that allows to simplify moving Video Files from SD-cards, USB-sticks and other removable media to a portable Drive by pressing the "Move" button</p>
+            <p>These Video files can be later accessed by clicking the "Stream" button on this website</p>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="content">
+            <h2>Available Actions</h2>
+            <div class="actions">
+                <button type="button" id="moveBtn">Move</button>
+                <button type="button" id="streamBtn">Stream</button>
+                <button type="button" id="settingsBtn">Settings</button>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <div class="footer">
+            <p>&copy; 2024-2025 Emn4tor</p>
+        </div>
+    </footer>
+
+</body>
+<script src="{{ url_for('static', filename='js/main.js') }}"></script>
+<script src="/web/static/js/main.js"></script>
+
+</html>

@@ -11,8 +11,7 @@ def insert_listener():
     """Plays 'insert.mp3' if a USB or SD card is detected, then waits 5 sec and plays 'removenow.mp3'."""
     if any('removable' in p.opts for p in psutil.disk_partitions(all=True)):
         playsound.playsound("assets/audio/insert.mp3")
-        time.sleep(5)
-        playsound.playsound("assets/audio/removenow.mp3")
+
 
 def move_files():
     #get drive logic
