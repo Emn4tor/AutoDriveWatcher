@@ -3,29 +3,43 @@ import time
 import playsound
 import shutil
 import os
-
 from pptx.media import Video
 
 
 def insert_listener():
-    """Plays 'insert.mp3' if a USB or SD card is detected, then waits 5 sec and plays 'removenow.mp3'."""
     if any('removable' in p.opts for p in psutil.disk_partitions(all=True)):
+        move_files()
         playsound.playsound("assets/audio/insert.mp3")
+    else:
+        playsound.playsound("assets/audio/error-1.mp3")
+
 
 
 def move_files():
-    #get drive logic
-    source_dir = "Videos/"
+    source_dirs = ["Videos/", "GOPRO100/", "MEDIA100/"]
     dest_dir = "Destination/"
 
+    # Create the destination directory if it doesn't exist
     if not os.path.exists(dest_dir):
         os.makedirs(dest_dir)
 
-    while any(f.endswith((".mp4", ".mkv", ".MP4")) for f in os.listdir(source_dir)):
-        for filename in os.listdir(source_dir):
-            if filename.endswith((".mp4", ".mkv", ".MP4")):
-                path = os.path.join("Videos/", filename)
-                shutil.move(os.path.join(source_dir, filename), os.path.join(dest_dir, filename))
+    # Iterate over the source directories
+    while any(f.endswith((".mp4", ".mkv", ".MP4")) for d in source_dirs if os.path.exists(d) for f in os.listdir(d)):
+        for source_dir in source_dirs:
+            # Skip if the directory doesn't exist
+            if not os.path.exists(source_dir):
+                continue
+
+            for filename in os.listdir(source_dir):
+                if filename.endswith((".mp4", ".mkv", ".MP4")):
+                    timestamp = os.path.getmtime(source_dir + filename)
+                    formatted_time = time.strftime("%d-%m-%Y", time.localtime(timestamp))
+                    print(formatted_time)
+                    destination_folder = os.path.join(dest_dir, formatted_time)
+                    os.makedirs(destination_folder, exist_ok=True)
+                    shutil.move(os.path.join(source_dir, filename), os.path.join(destination_folder, filename))
+                    print(f"Moving {filename} to {dest_dir}...")
+
 
 """ Plans:
         Insert listener:
@@ -43,11 +57,6 @@ def move_files():
                     When clicked videos and folders should be shown like in explorer
                     Also there should be an actual Video player that can play the videos
 """
-
-
-
-move_files()
-
 
 
 

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>File Explorer</title>
+    <link rel="stylesheet" href="/web/static/css/streamR.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/streamR.css') }}">
+</head>
+<body>
+<div class="container">
+    <div class="sidebar">
+        <div class="nav-item" data-path="Documents">
+            <span>📁</span>
+            Documents
+        </div>
+        <div class="nav-item" data-path="Music">
+            <span>🎵</span>
+            Music
+        </div>
+        <div class="nav-item" data-path="Pictures">
+            <span>🖼️</span>
+            Pictures
+        </div>
+        <div class="nav-item" data-path="Videos">
+            <span>🎬</span>
+            Videos
+        </div>
+        <div class="nav-item" data-path="Desktop">
+            <span>🖥️</span>
+            Desktop
+        </div>
+    </div>
+
+    <div class="main-content">
+        <div class="header">
+            <input type="text" class="search-bar" placeholder="Search my stuff">
+            <div class="view-controls">
+                <button id="viewToggle" title="Toggle View">
+                    📑
+                </button>
+                <select id="driveSelect" class="drive-select">
+                    <!-- Drives will be populated by JavaScript -->
+                </select>
+            </div>
+        </div>
+
+        <div class="content-container">
+            <div id="gridContainer" class="grid-container">
+                <!-- Items will be added here by JavaScript -->
+            </div>
+        </div>
+    </div>
+</div>
+<script src="script.js"></script>
+<script src="{{ url_for('static', filename='js/script.js') }}"></script>
+</body>
+</html>

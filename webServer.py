@@ -24,5 +24,6 @@ def handle_action(command):
     return jsonify({"status": "success", "command": command})
 
 
+
 if __name__ == "__main__":
     app.run(debug=True)
